@@ -1,0 +1,96 @@
+.form{
+    margin-bottom: 35px;
+    margin-top: 100px;
+    @media (max-width:991px) {
+        &{
+            margin-top: 0;
+        }
+    }
+    .margin{
+        margin:0 100px;
+        @media (max-width:991px) {
+            &{
+                margin:0;
+            }
+        }
+    }
+    img{
+        width: 100%;
+    }
+    .box{
+        box-shadow: 0 30px 30px -10px rgb(0 0 0 / 20%);
+        padding:15px;
+        border-radius: $bdradius-2;
+        width: 83%;
+        margin: 0 auto;
+        background-color: $color-white-1;
+        @media (max-width:991px) {
+            &{
+                width: 100%;
+                margin-top: 30px;
+            }
+        }
+    }
+    .title{
+        text-align: center;
+        @include style-text($fs-11, $fw-3, $color-black-1, $family-1);
+    }
+    form{
+        padding:10px;
+    }
+    .form-group{
+        position: relative;
+        .form-control{
+            border-radius: $bdradius-3;
+            padding: 15px 45px;
+            height: 45px;
+            border: 1px solid #e4e4e4;
+        }
+        .textarea{
+            height: auto;
+        }
+        
+        i{
+            position:absolute;
+            top: 15px;
+            left: 15px;
+            color: $color-pp-1;
+        }
+    }
+    button{
+        border-radius: $bdradius-3;
+        background-color: $color-pp-1;
+        padding: 10px 50px;
+        font-weight: $fw-2;
+        color: $color-white-1;
+        border:none;
+        margin-top: 30px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid $color-pp-1;
+        cursor: pointer;
+        span{
+            position: relative;
+            z-index:1;
+            transition: 0.5s;
+        }
+        &::before{
+            content:"";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $color-white-1;
+            transform: scale(0);
+            border-radius: $bdradius-3;
+            transition: 0.5s;
+        }
+        &:hover::before{
+            transform: scale(1);
+        }
+        &:hover span{
+            color:$color-pp-1;
+        }
+    }
+}

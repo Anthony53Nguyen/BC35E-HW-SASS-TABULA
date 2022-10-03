@@ -1,0 +1,162 @@
+@keyframes smoothScroll {
+    0% {
+      top: -10%;
+    }
+    100% {
+      top: 0;
+    }
+  }
+header {
+    position: relative;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        background-image: url("../images/yellow_top_wave_01.png");
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 50%;
+        height: 215px;
+
+        @media(max-width:991px){
+            &{
+                height: 175px;
+            }
+        }
+        @media(max-width:767px){
+            &{
+                height: 100px;
+            }
+        }
+        @media(max-width:479px){
+            &{
+                height: 50px;
+            }
+        }
+    }
+    @media(max-width:767px){
+        .navbar-nav{
+            background-color: #f7f7f7;
+        }
+    }
+    .navbar{
+        padding: 0;
+    }
+    .navbar-brand {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-left: 0px !important;    
+    }
+    @media (min-width:992px){
+        &.sticky{
+            position: fixed;
+            width: 100%;
+            z-index: 99999;
+            box-shadow: 0 0 10px 0 rgb(204 204 204 / 50%);
+            background-color: $color-white-1;
+            animation: smoothScroll 0.5s;
+            .phone {
+                padding: 5px 10px;
+            }
+            .navbar-brand{
+                display: none !important;
+            }
+            &::after{
+                display: none;
+            }
+        }
+    }
+}
+
+.navbar-collapse {
+    .nav-link {
+        @include style-text($fs-1, $fw-2, $color-black-1, $family-1);
+        padding: 1rem 1.7rem !important;
+        position: relative;
+        &:hover {
+            @include style-text($fs-1, $fw-2, $color-pp-2, $family-1);
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            bottom:-8px;
+            width: 10px;
+            height:10px;
+            left: 50%;
+            background-color: $color-pp-1;
+            border-radius: 50%;
+            transform: translateX(-50%) scale(0);
+            transition: 0.5s;
+            @media(max-width:767px){
+                &{
+                    left: 90px;
+                    bottom: 20px;
+                }
+            }
+        }
+        &:hover::after{
+            transform: translateX(-50%) scale(1);
+        }
+        &.is-active::after{
+            transform: translateX(-50%) scale(1);
+        }
+    }
+    .phone {
+        border-radius: $bdradius-3;
+        background-color: $color-pp-1;
+        padding: 10px 15px;
+        margin-left: 30px;
+        margin-right: 10px;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid $color-pp-1;
+        @media (max-width: 991px) {
+            &{
+                display: none;
+            }
+        }
+        cursor: pointer;
+        a {
+            @include style-text($fs-1, $fw-1, $color-white-1, $family-1);
+        }
+        span:last-child{
+            position: relative;
+            z-index:1;
+            transition: 0.5s;
+        }
+        &::before{
+            content:"";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: $color-white-1;
+            transform: scale(0);
+            border-radius: $bdradius-3;
+            transition: 0.5s;
+        }
+        &:hover::before{
+            transform: scale(1);
+        }
+        &:hover span:last-child{
+            color:$color-pp-1;
+        }
+        &:hover i{
+            color:$color-pp-1;
+            position: relative;
+        }
+    }
+    .icon a {
+        margin-left: 8px;
+        @include style-text($fs-1, $fw-1, $color-black-1, $family-1);
+    }
+    @media (max-width: 991px) {
+        .icon{
+            display: none;
+        }
+    }
+    
+}

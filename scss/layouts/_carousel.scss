@@ -1,0 +1,18 @@
+.carousel {
+    h5 {
+        @include style-text($fs-2, $fw-2, $color-pp-2, $family-1);
+        @media (max-width:991px) {
+            &{
+                margin-top: 30px;
+            }
+        }
+    }
+    h1 {
+        @include style-text($fs-4, $fw-3, $color-black-1, $family-1);
+        @media (max-width:991px) {
+            &{
+                font-size: 40px;
+            }
+        }
+    }
+}

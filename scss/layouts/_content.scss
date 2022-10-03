@@ -1,0 +1,60 @@
+.content {
+    background-color: $color-pp-3;
+    position: relative;
+    margin-top: 40px;
+    padding: 45px 0;
+    &::before {
+        content: "";
+        position: absolute;
+        top: -220px;
+        left: 0;
+        z-index: -1;
+        background-image: url(../images/Violet_top_left_wave.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 220px;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-image: url(../images/Wave_White_bottom_right_shape_01.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 400px;
+    }
+    .card {
+        position: relative;
+        z-index: 99;
+        margin-bottom: 30px;
+        border-radius: $bdradius-2;
+        transition: 0.5s;
+        width: 100% !important;
+        .card-thumb{
+            overflow: hidden;
+            border-radius: $bdradius-1;
+        }
+        .card-img-top{
+            border-radius: $bdradius-1;
+            transition: 2s;
+        }
+        .country{
+            @include style-text($fs-0, $fw-2, $color-pp-2, $family-1);
+        }
+        .card-title{
+            @include style-text($fs-9, $fw-3, $color-black-1, $family-1);
+        }
+        .card-text{
+            @include style-text($fs-1, $fw-1, $color-black-1, $family-1);
+        }
+        &:hover{
+            box-shadow: 0 30px 30px -10px rgb(0 0 0 / 20%);
+        }
+        &:hover .card-img-top{
+            transform: scale(1.1);
+        }
+    }
+}
